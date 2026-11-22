@@ -20,8 +20,9 @@ class ServicioPrueba:
 
     def validar_disponibilidad(self, duracion):
         return True
-        def __str__(self):
-    return "Servicio de prueba"
+
+    def __str__(self):
+        return "Servicio de prueba"
 
 
 # Servicio que no tiene disponibilidad
@@ -32,8 +33,6 @@ class ServicioNoDisponible:
 
     def validar_disponibilidad(self, duracion):
         return False
-        def __str__(self):
-    return "Servicio no disponible"
 
 
 # Crear objetos de prueba
@@ -147,8 +146,6 @@ except ErrorOperacion as error:
     print("Error:", error)
 
 
-print("\nTodas las pruebas finalizaron.")
-print("El sistema continua funcionando.")
 # PRUEBA 11: Intentar cancelar una reserva dos veces
 print("\nPRUEBA 11: Cancelar una reserva ya cancelada")
 
@@ -161,3 +158,4 @@ except ErrorOperacion as error:
 
 except Exception as error:
     print("Se presentó otro error:", error)
+
