@@ -10,7 +10,7 @@ Desarrollar una aplicación utilizando programación orientada a objetos, aplica
 ## Integrantes
 - Integrante 1: Sofia Espinel Avila 
 - Integrante 2: Juan Esteban Pinzón Botia 
-- Integrante 3: 
+- Integrante 3: Yuly Andrea Sanchez Fuquen 
 - integrante 4:
 - integrante 5:
 
