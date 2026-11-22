@@ -1,56 +1,99 @@
 
 
-from abc import ABC, abstractmenthod
+from abc import ABC, abstractmethod
 
 class Servicio(ABC):
-    @abstractmenthod
-    def calcular_costo(self):
+
+    def __init__(self, disponible = True):
+        self._disponible = disponible
+
+    @abstractmethod
+    def calcular_costo(self, duracion):
         """Método abstracto para calcular el costo del servicio."""
         pass
 
-@abstractmenthod
-def validar_parametros(self):
-    """Metodo abstracto para validar los parametros del servicio."""
-    pass
+    @abstractmethod
+    def validar_parametros(self, duracion):
+        """Método abstracto para validar los parametros del servicio."""
+        pass
+
+    @abstractmethod
+    def describir(self):
+        """Metodo que devuelve la descripción del servicio."""
+        pass
+
+    def validar_disponibilidad(self, duracion):
+        """Metodo que comprueba si el servicio está disponible."""
+        self.validar_parametros(duracion)
+        return self._disponible
+
+    def __str__(self):
+        return self.describir()
 
 #Reserva de salas
-    class ReservaSala(Servicio):
-        def __init__(self,horas):
-         self.horas = horas
-         slef.validar_parametros()
+class ReservaSala(Servicio):
+    def __init__(self, disponible = True):
+        super().__init__(disponible)
 
-        #Costo por hora
-        def calcular_costo(self):
-            return self.horas * 100
+    #Validación de parámetros
+    def validar_parametros(self, duracion):
 
-def validar_parametros(self):
-    if self.horas <= 0:
-      raise ValueError("Las horas deben ser mayores a cero.")
+        if isinstance(duracion, bool) or not isinstance(duracion, (int, float)):
+            raise ValueError("La duración debe ser numérica.")
 
-      #Alquiler de equipos
-      class AlquilerEquipos(Servicio):
-        def __init__(self, dias):
-            self.dias = dias
-            self.validar_parametros()
+        if duracion <= 0:
+            raise ValueError("Las horas de reserva deben ser mayores a cero.")
+    
+    #Costo por hora
+    def calcular_costo(self, duracion):
+        self.validar_parametros(duracion)
+        #Tarifa de 100 por hora de reserva
+        return duracion * 100
 
-            #costo por dia
-        def calcular_costo(self):
-            return self.dias * 50
+    #Descripción del servicio
+    def describir(self):
+        return "Reserva de salas por horas"
 
-        def validar_parametros(self):
-            if self.dias <=0:
-                raise ValueError("Los dias deben ser mayores a cero.")
+
+#Alquiler de equipos
+class AlquilerEquipos(Servicio):
+
+    def __init__(self, disponible = True):
+        super().__init__(disponible)
+
+    def validar_parametros(self, duracion):
+        if isinstance(duracion, bool) or not isinstance(duracion, (int, float)):
+            raise ValueError("La duración debe ser numérica.")
+
+        if duracion <= 0:
+            raise ValueError("Los días de alquiler deben ser mayores a cero.")
+
+    #costo por dia
+    def calcular_costo(self, duracion):
+        self.validar_parametros(duracion)
+
+        # Tarifa por día de alquiler
+        return duracion * 50
+
+    def describir(self):
+        return "Alquiler de equipos por días"
 
 # Asesorias especializadas.
 class Asesoria(Servicio):
-    def __init__(self, horas):
-      self.horas = horas
-      slef.validar_parametros()
+    def __init__(self, disponible = True):
+        super().__init__(disponible)
 
-# Costo por hora de asesoria
-def calcular_costo(self):
-    return self.horas * 150
+    def validar_parametros(self, duracion):
+        if isinstance(duracion, bool) or not isinstance(duracion, (int, float)):
+            raise ValueError("La duración debe ser numérica.")
 
-def validar_parametros(self):
-    if self.horas <= 0:
-       raise ValueError("Las horas deben ser mayores a cero.")
+        if duracion <= 0:
+            raise ValueError("Las horas de asesoría deben ser mayores a cero.")
+    # Costo por hora de asesoria
+    def calcular_costo(self, duracion):
+        self.validar_parametros(duracion)
+        # Tarifa por hora de asesoría
+        return duracion * 150
+
+    def describir(self):
+        return "Asesorías especializadas por horas"
