@@ -8,7 +8,7 @@ Proyecto académico desarrollado en Python para la gestión de clientes, servici
 Desarrollar una aplicación utilizando programación orientada a objetos, aplicando abstracción, herencia, encapsulación, polimorfismo y manejo de excepciones.
 
 ## Integrantes
-- Integrante 1: Sofia Espinel Avila (Gestión de reservas y excepciones)
+- Integrante 1: Sofia Espinel Avila 
 - Integrante 2: 
 - Integrante 3: 
 - integrante 4:
