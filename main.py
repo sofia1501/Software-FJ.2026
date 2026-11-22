@@ -20,6 +20,8 @@ class ServicioPrueba:
 
     def validar_disponibilidad(self, duracion):
         return True
+        def __str__(self):
+    return "Servicio de prueba"
 
 
 # Servicio que no tiene disponibilidad
@@ -30,6 +32,8 @@ class ServicioNoDisponible:
 
     def validar_disponibilidad(self, duracion):
         return False
+        def __str__(self):
+    return "Servicio no disponible"
 
 
 # Crear objetos de prueba
