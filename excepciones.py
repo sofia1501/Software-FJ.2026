@@ -1,4 +1,3 @@
-
 # excepciones.py
 
 # Clase principal para los errores del sistema
