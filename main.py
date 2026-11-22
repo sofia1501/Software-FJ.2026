@@ -149,3 +149,15 @@ except ErrorOperacion as error:
 
 print("\nTodas las pruebas finalizaron.")
 print("El sistema continua funcionando.")
+# PRUEBA 11: Intentar cancelar una reserva dos veces
+print("\nPRUEBA 11: Cancelar una reserva ya cancelada")
+
+try:
+    reserva.cancelar()
+    print("Error: El sistema permitió cancelar dos veces.")
+
+except ErrorOperacion as error:
+    print("Error controlado correctamente:", error)
+
+except Exception as error:
+    print("Se presentó otro error:", error)
